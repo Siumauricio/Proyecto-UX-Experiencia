@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj": {}
+    "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj": {
+    "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj",
+        "projectUniqueName": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
         "projectName": "Backend-UX",
-        "projectPath": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj",
-        "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\obj\\",
+        "projectPath": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
+        "packagesPath": "C:\\Users\\Enrique\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mauricio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Enrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
