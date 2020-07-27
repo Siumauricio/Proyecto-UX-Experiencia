@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend-UX", "Backend-UX\Backend-UX.csproj", "{9D889C89-EFBE-49B2-8353-AD1E05F27B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend-UX", "Backend-UX\Backend-UX.csproj", "{9D889C89-EFBE-49B2-8353-AD1E05F27B13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

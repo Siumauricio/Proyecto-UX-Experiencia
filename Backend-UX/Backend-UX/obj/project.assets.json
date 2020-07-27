@@ -5184,11 +5184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Enrique\\source\\repos\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
+      "projectUniqueName": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
       "projectName": "Backend-UX",
-      "projectPath": "C:\\Users\\Enrique\\source\\repos\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
+      "projectPath": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
       "packagesPath": "C:\\Users\\Enrique\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Enrique\\source\\repos\\Backend-UX\\Backend-UX\\obj\\",
+      "outputPath": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

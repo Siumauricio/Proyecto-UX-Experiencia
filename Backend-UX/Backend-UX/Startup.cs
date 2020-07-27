@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Backend_UX.Models;
 
 namespace Backend_UX
 {
@@ -31,7 +32,10 @@ namespace Backend_UX
             // services.pol app.UseCors(options =>
             // options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             services.AddControllers();
+
             var connection = @"Data Source=database-ux.cxgfeicra4jz.us-east-1.rds.amazonaws.com;Initial Catalog=Proyecto-UX;Persist Security Info=True;User ID=admin;Password=proyecto1";
+            services.AddDbContext<ProyectoUXContext>(options => options.UseSqlServer(connection));
+
             //  services.AddDbContext<dbproyecto1Context>(options => options.UseSqlServer(connection));
         }
 

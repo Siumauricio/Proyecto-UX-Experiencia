@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DOA/4Be7bTL/7WT8QthZt1UEpHDtR/Xz6XX+1yM7WQB/Et4ccMYUSGREKigrWkbxVMnzXSufnPjUn38DUP02+Q==",
+  "dgSpecHash": "LR2NMoTkwMlkJaLCwqOQmIm/w7JMV7zoaQdjmeLYVFSA8/ZnoizVOlED3b4Sn4YcxqFVvvDlgPaFI1ZCQptjKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Enrique\\source\\repos\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
+  "projectFilePath": "C:\\Users\\Enrique\\Documents\\Proyecto-UX\\Proyecto1\\Proyecto-UX-Experiencia\\Backend-UX\\Backend-UX\\Backend-UX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Enrique\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Enrique\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

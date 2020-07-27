@@ -24,7 +24,7 @@ import { Component, Inject, Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class AppComponent implements OnInit{
-  public API = 'http://localhost:5000/values';
+  public API = 'http://localhost:5000/weatherforecast';
   public JOGGING_RECORDS_ENDPOINT = `${this.API}/weatherforecast`;
 
   title = 'angular';
