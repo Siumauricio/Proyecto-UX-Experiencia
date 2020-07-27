@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj": {}
+    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Proyecto_UX-1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj": {
+    "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Proyecto_UX-1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj",
-        "projectName": "Backend-UX",
-        "projectPath": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Backend-UX.csproj",
+        "projectUniqueName": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Proyecto_UX-1.csproj",
+        "projectName": "Proyecto_UX-1",
+        "projectPath": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\Proyecto_UX-1.csproj",
         "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Mauricio\\source\\repos\\Proyecto_UX-1\\Proyecto_UX-1\\obj\\",
         "projectStyle": "PackageReference",
