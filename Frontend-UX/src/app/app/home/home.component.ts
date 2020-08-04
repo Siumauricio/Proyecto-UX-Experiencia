@@ -3,13 +3,14 @@ import {Component} from '@angular/core';
 
 
 @Component({
-selector: 'home-class',
-templateUrl: "./home.component.html",
-
-})
+    selector: 'app-home',
+    templateUrl: './home.component.html'
+ 
+  })
 
 export class HomeComponent {
+    mostrar(){
+       // document.getElementById('slideshow').style.display='inline';
+   }
    
-
-    
 }

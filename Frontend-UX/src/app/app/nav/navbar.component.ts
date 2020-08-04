@@ -1,16 +1,16 @@
-import {Component} from '@angular/core';
+// import {Component} from '@angular/core';
 
 
-@Component({
-selector: "navbar-class",
-templateUrl: "./navbar.component.html",
+// @Component({
+// selector: 'navbar-class',
+// templateUrl: "./navbar.component.html",
 
-})
+// })
 
-export class NavbarComponent {
+// export class NavbarComponent {
 
-mostrar(){
-      document.getElementById('slideshow').style.display='inline';
-}
+// mostrar(){
+//      document.getElementById('slideshow').style.display='inline';
+// }
 
-}
+// }

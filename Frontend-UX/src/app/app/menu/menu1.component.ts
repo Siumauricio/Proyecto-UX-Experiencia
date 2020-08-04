@@ -13,7 +13,7 @@ lstProducts: Object;
     constructor(private http: HttpClient){}
  
 ngOnInit(){
-    document.getElementById('slideshow').style.display='none';
+   // document.getElementById('slideshow').style.display='none';
     return this.http.get(this.API).subscribe(res =>{
         this.lstProducts=res;
     },error=>{ console.log(error)});

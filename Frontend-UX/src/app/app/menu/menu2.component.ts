@@ -23,7 +23,6 @@ export class Menu2Component implements OnInit{
     
         
 ngOnInit(){
-    document.getElementById('slideshow').style.display='none';
     return this.http.get(this.API).subscribe(res =>{
         this.lstProducts=res;
     },error=>{ console.log(error)});
