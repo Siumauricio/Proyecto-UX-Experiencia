@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="span">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="object" class="col-md-4" *ngFor ="let pr of lstProducts; index as i;">
+            <div class="card  Prod Prodhover ">
+                <div>
+                    <img src="{{pr.url}}" alt="" width="347" height="340" >
+                </div>
+                <div hidden>
+                    <output>{{pr.idproducto}}</output>
+                </div>
+                <h3 >{{pr.nombre}}</h3>
+                    <p>
+                        {{pr.descripcion}}
+                    </p>
+                <div class="container">
+                    <div class="row">
+                        <h4 style="margin-right: 40px;">Lps. {{pr.precio}}</h4>
+                        <input type="number" value="1" min="1" max="1000" step="1" style="margin-left: 40px;"/>
+                    </div>
+                </div>
+                <div class="container">
+                <div class="row buttons">
+                    <button type="button" class="btn btn-primary" (click)="reviews()" data-toggle="modal" data-target="#reviewsModal" style="margin-right:30px;">Reviews
+                        
+                    </button>
+                    <button type="button" class="btn btn-primary" >Añadir</button>
+                </div>
+                </div>
+            </div>
+            <!--My modal-->
+            <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">nombre</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <img src="url" alt="" width="80" height="80" >
+                        </div>
+                        <div  *ngFor ="let rv of lstReviews; index as i;">
+                            <p>
+                                {{rv.mensaje}}
+                            </p>
+                            <output style="margin-right: 10px;">Fecha: {{rv.fecha}}</output>
+                            <output>Valoracion: {{rv.valoracion}}/10</output>
+                        <h6>_____________________________________________________________</h6>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Agregar Review</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

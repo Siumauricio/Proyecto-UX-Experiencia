@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="span">
+<nav class="navbar navbar-expand-lg navbar-default">
+  <div>
+    <img src="assets/fondos/logo.png" class="logo">
+  </div>
+    <div class="collapse navbar-collapse navi" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" id="menu1" (click)="mostrar()">
+          <a class="nav-link navihover styleMenu" routerLink="/Home"  routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+        </li>   
+        <li class="nav-item active" >
+          <a class="nav-link navihover styleMenu" routerLink="/Pizzas"  routerLinkActive="active">Pizzas<span class="sr-only">(current)</span></a>
+        </li>      
+        <li class="nav-item active" >
+          <a class="nav-link navihover styleMenu" routerLink="/Bebidas"  routerLinkActive="active">Bebidas<span class="sr-only" >(current)</span></a>
+        </li>
+        <li class="nav-item active" >
+          <a class="nav-link navihover styleMenu" routerLink="/Postres"  routerLinkActive="active">Postres<span class="sr-only" >(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input name="textoABuscar" class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
+        <button class="btn btn-default">
+            Buscar
+        </button>
+      </form>
+      <div style="padding-left: 50px;"></div>
+      <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav">
+          <li>
+            <a>Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </html> 

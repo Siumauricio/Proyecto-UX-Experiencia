@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="span">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor ="let pr of lstProducts; index as i;">
+            <div class="card  Prod Prodhover ">
+                <div>
+                    <img src="{{pr.url}}" alt="" width="347" height="340" >
+                </div>
+                <h3>{{pr.nombre}}</h3>
+                    <p>
+                        {{pr.descripcion}}
+                    </p>
+                <h4>Lps. {{pr.precio}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
