@@ -1,11 +1,6 @@
 <form [formGroup]="user"  (ngSubmit)="onSubmit()">
   
   <label >
-    Nombre Completo:
-    <input class="center-block" type="text" formControlName="nombre">
-  </label>
-
-  <label >
     Correo Electronico:
     <input class="center-block" type="text" formControlName="correo">
   </label>
@@ -14,5 +9,5 @@
    Contrasena:
     <input class="center-block" type="text" formControlName="contrasena">
   </label>
-  <button   class="btn btn-primary" type="submit" [disabled]="!user.valid">Submit</button>
+  <button class="btn btn-primary"  type="submit" [disabled]="!user.valid">Log In</button>
 </form>

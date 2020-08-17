@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegistroComponent implements OnInit {
   private API = 'http://localhost:5000/api/Admin/Registro';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private toastr: ToastrService,private router:Router) { }
 
   user = new FormGroup({
     correo: new FormControl(''),
@@ -29,10 +31,9 @@ export class RegistroComponent implements OnInit {
     //console.warn(this.profileForm.value);
     return this.http.post(this.API,usuario).subscribe(
       res=>{},
-      error => {console.log(error)},
-      ()=> {console.log("Registro completado sin ningun problema!")});
-  }
-
+      error => { this.toastr.warning('Error: Usuario ya existe', 'Usuario!')},
+      ()=> {    this.toastr.success('Usuario Registrado Correctamente!', 'Bienvenido!');  this.router.navigateByUrl('/Login', { skipLocationChange: true });  });
+    }
 }
 interface  Usuario{
 Correo:string;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="span">
 
-<nav class="navbar navbar-expand-lg navbar-default">
+<nav class="navbar navbar-expand-lg navbar-default" id="nabvar-ux">
   <div>
     <img src="assets/fondos/logo.png" class="logo">
   </div>
@@ -30,10 +30,27 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a [routerLink]="['/Registro']" >Registro </a>
+            <a [routerLink]="['/Registro']" id="reglog-ux1" >Registro &nbsp;&nbsp;</a>
           </li>
+
           <li>
-            <a>Login</a>
+            <a [routerLink]="['/Login']"  id="reglog-ux2">Login</a>
+          </li>
+
+          <li>
+            <a id="carrito">Carrito&nbsp;&nbsp;</a>
+          </li>
+          
+          <li>
+            <a id="logout-ux">Logout&nbsp;&nbsp;</a>
+          </li>
+
+          <li>
+            <a id="Panel-ux">Panel&nbsp;&nbsp;</a>
+          </li>
+
+          <li>
+            <a id="chat-ux" [routerLink]="['/Chat']">Chats</a>
           </li>
         </ul>
       </div>
