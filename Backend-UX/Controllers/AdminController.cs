@@ -14,19 +14,29 @@ namespace Proyecto_UX_1.Controllers {
 
         public AdminController(Models.ProyectoUXContext context) {
             db = context;
-
         }
 
         [HttpPost("Registro")]
         public IActionResult RegistrarUsuario([FromBody] Usuarios model) {//Registro de usuarios
-            var data = db.Usuarios.Where(options => options.Correo == model.Correo).ToList();
-
+            var data = db.Usuarios.Where(options => options.Correo == model.Correo.ToUpper()).ToList();
             if (data.Count >= 1) {
-                return BadRequest(new { message = "Username ya existe" });
+                return BadRequest(new { message = "Correo ya existe!" });
             }
+            model.Correo = model.Correo.ToUpper();
+            model.Rol = 1;
             db.Usuarios.Add(model);
             db.SaveChanges();
             return Ok(data);
         }
+
+        [HttpPost("Login")]
+        public IActionResult ValidarUsuario([FromBody] Usuarios model) {//Registro de usuarios
+            var data = db.Usuarios.Where(options => options.Correo == model.Correo.ToUpper() && options.Contrasena == model.Contrasena).ToList();
+            if (data.Count >= 1) {
+                return Ok(data);
+            }
+             return BadRequest(new { message = "Usuario Invalido!" }); ;
+        }
+
     }
 }
