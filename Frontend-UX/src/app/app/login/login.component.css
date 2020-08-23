@@ -1,5 +1,7 @@
-.center-block {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 250px;
+}

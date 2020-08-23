@@ -1,53 +1,107 @@
-import { Component, OnInit,Injectable, NgZone  } from '@angular/core';
-import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';  
-import { Message, ChatServiceComponent } from '../chat-service/chat-service.component';
+import { Component, OnInit, Injectable, NgZone } from "@angular/core";
+import { HubConnection, HubConnectionBuilder } from "@aspnet/signalr";
+import { SignalRService, Mensajes } from "./signalR.service";
+import { HttpClient } from "@angular/common/http";
+import { AuthService, Usuario } from "../auth-service/auth-service.component";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  selector: "app-chat",
+  templateUrl: "./chat.component.html",
+  styleUrls: ["./chat.component.css"],
 })
 export class ChatComponent implements OnInit {
-
-  txtMessage: string = '';
-  uniqueID: string = new Date().getTime().toString();
-  messages = new Array<Message>();
-  message = new Message();
-
-  constructor(private chatService: ChatServiceComponent,
-    private _ngZone: NgZone) {
-      this.subscribeToEvents();
-   }
-   sendMessage(): void {
-    if (this.txtMessage) {
-      this.message = new Message();
-      this.message.clientuniqueid = this.uniqueID;
-      this.message.type = "sent";
-      this.message.message = this.txtMessage;
-      this.message.date = new Date();
-      this.messages.push(this.message);
-      this.chatService.sendMessage(this.message);
-      this.txtMessage = '';
-    }
+  mensaje;
+  messages = new Array<Mensajes>();
+  user: Usuario;
+  chats;
+  cerrar = true;
+  idUser;
+  lstMessage;
+  infoChat;
+  constructor(private authService: AuthService,private signalR: SignalRService, private _ngZone: NgZone) {
+    this.subscribeToEvents();
   }
 
   ngOnInit() {
-    // document.getElementById('navbar-ux').style.display='none';
-    // document.getElementById('reglog-ux1').style.display='none';
-    // document.getElementById('reglog-ux2').style.display='none';
-    // document.getElementById('logout-ux').style.display='none';
-    // document.getElementById('Panel-ux').style.display='none';
-    // document.getElementById('chat-ux').style.display='none';
-  }
-  subscribeToEvents() {
-    this.chatService.messageReceived.subscribe((message: Message) => {
-      this._ngZone.run(() => {
-        if (message.clientuniqueid !== this.uniqueID) {
-          message.type = "received";
-          this.messages.push(message);
+    this.user = this.authService.getUser();
+    if (this.user[0].rol == 1) {
+      //Extraer Chat de clientes
+      this.signalR.getChatClient(this.user[0].idUsuario).subscribe(
+        (result) => {
+          this.chats = result;
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log("Solicitud correctamnte de listado de chats");
         }
+      );
+      console.log("Cliente ingresando al chat =>", this.user);
+    } else {
+      //Extraer Chats de Administradores
+      this.signalR.getChatsAdmin().subscribe(
+        (result) => {
+          this.chats = result;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log("Solicitud correctamnte de listado de chats");
+        }
+      );
+      console.log("Chats Activos: ", this.chats);
+      console.log("Administrador ingresando al chat =>", this.user);
+    }
+  }
+  ingresarMensaje() {
+    console.log("Listado de Mensajes: ", this.messages);
+    this.mensaje = (document.getElementById(
+      "mensaje"
+    ) as HTMLInputElement).value;
+    console.log(this.user);
+    if (this.user[0].rol == 1) {
+      this.signalR.sendMessageToAdmin(this.mensaje);
+      this.signalR.sendMessageToAd(this.infoChat.idChat,this.mensaje)
+
+    } else {
+      this.signalR.sendMessageToClient(this.mensaje, this.idUser);
+     this.signalR.sendMessageToCL(this.infoChat.idChat,this.mensaje)
+
+    }
+  }
+  verMensajes(chat) {
+    this.messages = [];
+
+    console.log("Informacion de Usuario a Enviar Mensaje ", chat);
+    this.infoChat = chat;
+    this.signalR.getMensajesCliente(chat.idChat).subscribe((res) => {
+      this.lstMessage = res;
+    });
+    if (this.signalR.hubConnection) {
+      this.signalR.hubConnection.stop();
+      this.signalR.hubConnection= undefined;
+   }
+    if(this.user[0].rol ==1){
+      this.signalR.createConnection();
+      this.signalR.registerOnServerEvents();
+      this.signalR.startConnection(this.user[0].idUsuario);
+    }else{
+      this.signalR.createConnection();
+      this.signalR.registerOnServerEvents();
+      this.signalR.startConnection(chat.usuariosIdUsuario);
+    }
+
+    this.idUser = chat.usuariosIdUsuario;
+  }
+  private subscribeToEvents(): void {
+    this.signalR.messageReceived.subscribe((message) => {
+      this._ngZone.run(() => {
+        this.messages.push(message);
       });
     });
   }
 }
-

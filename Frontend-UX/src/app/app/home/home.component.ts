@@ -1,20 +1,28 @@
-
-import {Component, OnInit} from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  AfterViewInit,
+} from "@angular/core";
+import { Usuario, AuthService } from "../auth-service/auth-service.component";
+import { LoginComponent } from "../login/login.component";
+import { Subscription } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html'
- 
-  })
-
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+})
 export class HomeComponent implements OnInit {
-  ngOnInit(){
-    document.getElementById('carrito').style.display='none';
-    document.getElementById('logout-ux').style.display='none';
-    document.getElementById('Panel-ux').style.display='none';
-    document.getElementById('chat-ux').style.display='none';
-    
+  private routeSub: Subscription;
+
+  constructor(private route: ActivatedRoute, private auth: AuthService) {}
+
+  ngOnInit() {
+    console.log(this.auth.getUser());
   }
-   
+  Logout() {
+    this.auth.user = null;
+  }
 }

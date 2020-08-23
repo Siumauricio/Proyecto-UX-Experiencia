@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, Usuario } from '../auth-service/auth-service.component';
 
 @Component({
   selector: 'app-menu-usuario',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-usuario.component.css']
 })
 export class MenuUsuarioComponent implements OnInit {
-
-  constructor() { }
+  ls:Usuario
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
   //  document.getElementById('nabvar-ux').style.display='none';
@@ -16,6 +17,9 @@ export class MenuUsuarioComponent implements OnInit {
     document.getElementById('reglog-ux2').style.display='none';
     document.getElementById('carrito').style.display='inline';
     document.getElementById('logout-ux').style.display='inline';
+    document.getElementById('chat-ux').style.display='inline';
+    this.ls = this.authService.getUser();
+    console.log(this.ls)
   }
 
 }

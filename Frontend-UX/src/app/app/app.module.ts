@@ -18,7 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { MenuAdministradorComponent } from './menu-administrador/menu-administrador.component';
 import { ChatComponent } from './chat/chat.component';
-import { ChatServiceComponent } from './chat-service/chat-service.component';
+import { SignalRService } from './chat/signalR.service';
+import { AuthService } from './auth-service/auth-service.component';
+import { AppRoutes } from './routes';
 
 
 @NgModule({
@@ -29,13 +31,12 @@ import { ChatServiceComponent } from './chat-service/chat-service.component';
     Menu2Component,
     Menu3Component,
     FooterComponent,
-    SlideShowComponent,
     RegistroComponent,
     SlideShowComponent,
     LoginComponent,
     MenuUsuarioComponent,
     MenuAdministradorComponent,
-    ChatComponent
+    ChatComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,21 +45,10 @@ import { ChatServiceComponent } from './chat-service/chat-service.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    RouterModule.forRoot([ 
-    { path: '', component: SlideShowComponent, pathMatch: 'full' },
-    {path: 'Home', component: SlideShowComponent},
-    {path: 'Pizzas', component: Menu1Component},
-    {path: 'Bebidas', component: Menu2Component},
-    {path: 'Postres', component: Menu3Component},
-    {path: 'Registro', component: RegistroComponent},
-    {path: 'Login', component: LoginComponent},
-    {path: 'Menu-Usuarios', component: MenuUsuarioComponent},
-    {path: 'Menu-Admin', component: MenuAdministradorComponent},
-    {path: 'Chat', component: ChatComponent}
-    ])
+    RouterModule.forRoot(AppRoutes)
   ],
   exports:[RouterModule],
-  providers: [ChatServiceComponent],
+  providers: [AuthService,SignalRService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

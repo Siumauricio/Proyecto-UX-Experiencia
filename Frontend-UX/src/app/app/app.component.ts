@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from './auth-service/auth-service.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,6 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   disabled: boolean = true;
-  title = 'app';
   isWeb(){
     return this.disabled;
   }
