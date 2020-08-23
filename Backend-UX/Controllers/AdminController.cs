@@ -37,6 +37,5 @@ namespace Proyecto_UX_1.Controllers {
             }
              return BadRequest(new { message = "Usuario Invalido!" }); ;
         }
-
     }
 }
