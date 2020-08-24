@@ -66,13 +66,3 @@ namespace Proyecto_UX_1.Controllers {
     }
 }
 
-//<div class="inbox_chat" * ngFor = "let chat of chats" >
-//            < div class="chat_list active_chat">
-//              <div class="chat_people">
-//                <div class="chat_img"> <img src = "https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-//                <div class="chat_ib">
-//                  <h5> {{chat.nombre}} 
-//                    <span class="chat_date">2020</span></h5>
-//                  <!-- <p>Test, which is a new approach to have all solutions
-//                    astrology under one roof.</p> -->
-//                </div>

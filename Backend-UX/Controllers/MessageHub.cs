@@ -14,15 +14,12 @@ namespace Proyecto_UX_1.Controllers {
     [ApiController]
     public class MessageController:Hub {
         public Models.ProyectoUXContext db;
+
         public async Task SendMessage(int userId, string message , int rol) {
-            //await Clients.Client(userId).SendAsync("Send", message);
-            string user = Context.ConnectionId;
            await Clients.Group("G"+ userId).SendAsync("Send",message,rol);
-             //await Clients.All.SendAsync("Send", message);
         }
         public async Task userToGroup(int userId) {
            await Groups.AddToGroupAsync(Context.ConnectionId, "G"+ userId);
-           // return Context.ConnectionId;
         }
     }
 }
