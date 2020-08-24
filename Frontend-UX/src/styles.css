@@ -1,0 +1,83 @@
+You can add global styles to this file, and also import other style files
+.nabvar-ux{
+    background-color: rgb(59, 66, 66);
+    padding: 10px;
+    color: aliceblue;
+    font-size: 17px;
+    margin-left: 20px;
+    margin-right: 120px;
+    margin-top:30px;
+}
+ 
+.navihover:hover{
+    background-color: rgb(52, 54, 54);
+    color: aliceblue;
+    cursor: pointer;
+   
+}
+
+body{
+    background-color: rgb(244, 250, 250)
+}
+
+.styleMenu{
+    margin-right: 15px;
+    color: black;
+}
+
+.Prodhover:hover{
+    background-color: rgb(66, 66, 64);
+}
+
+.Prod{
+    margin-top: 30px;
+    background-color: rgb(119, 119, 114);
+    color: aliceblue;
+}
+
+.footer{
+    padding: 30px;
+    background-color: rgb(65, 64, 66); 
+    color: aliceblue;
+    margin-top: 70px;
+}
+
+.logo{
+    width: 80px;
+    height: 80px; 
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.buttons{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.active{
+    color: #18181a;
+}
+form {
+    padding-left: 860px;
+    display: inline-grid;
+}
+
+app-registro{
+    min-height: calc(512px - 70px);
+    display: block;
+}
+
+app-login{
+    min-height: calc(512px - 70px);
+    display: block;
+}
+    /* display: inline-grid; */
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}

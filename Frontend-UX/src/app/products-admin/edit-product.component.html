@@ -1,0 +1,33 @@
+
+<hr>
+<div class="col-md-6 container" *ngFor="let pr of producto" >
+  <form autocomplete="off" novalidate style="padding-left: 0px;">
+    <h2>Codigo del producto: {{pr?.idProducto}}-{{pr?.menuIdMenu}}</h2>
+    <hr>
+    <div class="form-group" >
+      <label for="Nombre">Nombre del Producto:</label>
+      <input name="nombre" required id="nombre" 
+       type="text" class="form-control" value={{pr?.nombre}} />
+    </div>
+ 
+    <div class="form-group">
+      <label for="Precio">Precio:</label>
+      <input  name="precio" required id="precio" type="text" class="form-control" value={{pr?.precio}} />
+    </div>
+ 
+    <div class="form-group">   
+            <label for="Descripcion">Descripcion:</label>
+            <textarea  name="descripcion" id="descripcion" rows="5" cols="30" class="form-control" >{{pr?.descripcion}}
+            </textarea>
+    </div>
+ 
+    <div class="form-group" >
+      <label for="Url">Url:</label>
+      <input  name="url" required pattern=".*\/.*.(png|jpg)" id="url" type="text" class="form-control" value={{pr?.url}}/>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary" (click)="editProduct(pr)" >Guardar</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+ 
+  </form>
+</div>

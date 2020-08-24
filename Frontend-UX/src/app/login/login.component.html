@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-4">
+        <form #loginForm="ngForm"  (ngSubmit)="onSubmit(loginForm.value)">
+
+            <div class="form-group">
+                <label for="correo">Nombre de Usuario:</label>
+                <input (ngModel)="correo" name="correo" id="correo" type="text" class="form-control" required
+                    placeholder="User Name..." />
+            </div>
+
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label>
+                <input (ngModel)="contrasena" name="contrasena" id="contrasena" type="password" class="form-control" required
+                    placeholder="Password..." />
+            </div>
+
+            <button type="submit" class="btn btn-primary"  >Entrar</button>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <button type="button" class="btn btn-secondary">Cancelar</button>
+
+        </form>
+    </div>
