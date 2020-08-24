@@ -1,6 +1,13 @@
 <div class="card container">
     <div class="card-header row">
       <h2>Productos</h2>
+      <div class="col-md-6">
+           <select (click)="filtrar()" name="menuIdMenu" required id="menuIdMenu" class="form-control"  placeholder="Seleccione">
+             <option value="1">Pizzas</option> 
+             <option value="2">Bebidas</option>
+            <option value="3">Postres</option>
+      </select>
+    </div>
           <button [routerLink]="['new']" type="button" class="btn btn-primary" style="margin-left: 850px;">Agregar</button>
     </div>  
     <div class="card-body">

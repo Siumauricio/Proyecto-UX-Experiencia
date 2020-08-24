@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using Newtonsoft.Json;
-using Proyecto_UX_1.Models;
+using Backend_UX.Models;
 
-namespace Proyecto_UX_1.Controllers {
+namespace Backend_UX.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class ChatsController:ControllerBase {

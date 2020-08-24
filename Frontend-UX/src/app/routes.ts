@@ -14,6 +14,7 @@ import { ProductsComponent } from './products-admin/products-admin.component';
 import { EditProductComponent } from './products-admin/edit-product.component';
 import { ProductRouterActivator } from './products-admin/products-router-activator.service';
 import { AddProductComponent } from './products-admin/add-product.component';
+import { listCarritoComponent } from './compras/list-carrito.component';
 
 export const AppRoutes: Routes = [
     {path: '', component: SlideShowComponent, pathMatch: 'full' },
@@ -28,5 +29,6 @@ export const AppRoutes: Routes = [
     {path: 'products/new', component: AddProductComponent, canDeactivate: ['canDeactivateCreateProduct']},
     {path: 'Menu-Usuarios', component: MenuUsuarioComponent},
     {path: 'Menu-Admin', component: MenuAdministradorComponent},
-    {path: 'Chat', component: ChatComponent}
+    {path: 'Chat', component: ChatComponent},
+    {path: 'carrito', component: listCarritoComponent}
 ]

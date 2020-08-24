@@ -4,13 +4,13 @@ import { RouterLink, Router } from '@angular/router';
 
 
 @Component({
-    selector: 'Products',
+    selector: 'products',
     templateUrl: './products-admin.component.html'
 
 })
 
 
-export class ProductsComponent implements OnInit{
+export class ProductsComponent{
     lstProducts:any;
     imageWidth=50;
     imageMargin=2;
@@ -19,11 +19,13 @@ export class ProductsComponent implements OnInit{
 
     }
 
-    ngOnInit(){
-        //document.getElementById('slideshow').style.display='none';
-        this.productsAdmin.getProductos().subscribe( res=>{
+
+    filtrar(){
+        let value=+(document.getElementById('menuIdMenu') as HTMLInputElement).value;
+        this.productsAdmin.getProductosByMenu(value).subscribe( res=>{
             this.lstProducts=res;
         }, error=>{console.log(error)});
+
     }
 
     Eliminar(id){

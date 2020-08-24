@@ -42,7 +42,8 @@ ngOnInit(){
        this.producto=res;
        console.log(this.producto);
     },error=>{ console.log(error); });
-}
+
+};
 
 
 editProduct(form){
@@ -58,7 +59,7 @@ editProduct(form){
 }
 
 cancel(){
-
+    this.router.navigate(['products']);
 }
 
 }

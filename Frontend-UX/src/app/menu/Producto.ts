@@ -25,4 +25,15 @@ export class Product{
     url: string;
 }
 
+export class lstCarrito{
+    idProducto:number;
+    precio: number;
+    nombre:string;
+    menuIdMenu: number;
+    descripcion: string;
+    url: string;
+
+
+}
+
 

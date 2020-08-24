@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Proyecto_UX_1.Models;
+using Backend_UX.Models;
 
-namespace Proyecto_UX_1.Controllers {
+namespace Backend_UX.Controllers {
     [ApiController]
     [Route("api/[controller]")]
     public class AdminController:ControllerBase {

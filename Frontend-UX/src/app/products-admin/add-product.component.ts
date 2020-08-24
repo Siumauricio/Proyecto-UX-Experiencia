@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductsAdminService } from './products-admin.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -20,24 +21,34 @@ import { Router } from '@angular/router';
 })
 
 export class AddProductComponent{
-    isDirty:boolean=true;
     nombre;
     menuIdMenu;
     precio;
     descripcion;
     url;
 
-    constructor(private productsAdmin: ProductsAdminService,private router: Router){
+    isDirty(){
+        let sizeName=(document.getElementById('nombre') as HTMLInputElement).value;
+        let sizePrecio=(document.getElementById('precio') as HTMLInputElement).value;
+        let sizeDescripcion=(document.getElementById('descripcion') as HTMLInputElement).value;
+        let sizeUrl=(document.getElementById('url') as HTMLInputElement).value;
+        if(sizeName.length>0  || sizePrecio.length>0  || sizeDescripcion.length>0  || sizeUrl.length>0)
+            return true;
+        return false; 
+    }
+    
+    constructor(private productsAdmin: ProductsAdminService,private router: Router, private toastr: ToastrService){
+
     }
 
 saveProduct(form){
     this.productsAdmin.addProduct(form).subscribe(res =>{
        },error=>{ console.log(error)});
-       this.isDirty=false;
+       this.toastr.success("Se agrego", "Hecho!")
        this.router.navigate(['products']);
 }
+
 cancel(){
-    this.isDirty=false;
     this.router.navigate(['products']);
 }
 

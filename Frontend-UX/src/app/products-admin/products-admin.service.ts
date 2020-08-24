@@ -10,14 +10,14 @@ export class ProductsAdminService{
 constructor(private http: HttpClient){
 
 }
-private APIProductos = 'http://localhost:5000/ProductsAdmin/getProducts';
+private APIProductosByMenu = 'http://localhost:5000/ProductsAdmin/getProductsByMenu';
 private APIProductosPorId = 'http://localhost:5000/ProductsAdmin/getProductById';
 private APIEditProducto = 'http://localhost:5000/ProductsAdmin/putProduct';
 private APIAddProducto = 'http://localhost:5000/ProductsAdmin/addProduct';
 private APIDeleteProducto = 'http://localhost:5000/ProductsAdmin/deleteProduct';
 
-getProductos(): Observable<Product[]>{
-    return this.http.get<Product[]>(this.APIProductos);
+getProductosByMenu(idMenu): Observable<Product[]>{
+    return this.http.get<Product[]>(this.APIProductosByMenu+idMenu);
 }
 
 getProductById(id): Observable<Product> {

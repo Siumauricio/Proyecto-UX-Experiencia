@@ -21,6 +21,7 @@ getReviews(id){
    return this.http.get(this.APIReviews+id)
 }
 
+
 addReviews(id, range,comments){
     var aux=new Date();
     let date= (aux.getFullYear().toString()+"/"+aux.getMonth().toString() +"/"+aux.getDay().toString());

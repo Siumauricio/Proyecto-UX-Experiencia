@@ -28,6 +28,7 @@ import { AddProductComponent } from './products-admin/add-product.component';
 import { ProductsListService } from './menu/Products.service';
 import { ReviewsService } from './menu/Reviews.service';
 import { ProductsAdminService } from './products-admin/products-admin.service';
+import { listCarritoComponent } from './compras/list-carrito.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ProductsAdminService } from './products-admin/products-admin.service';
     ChatComponent,
     ProductsComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    listCarritoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -65,8 +67,9 @@ import { ProductsAdminService } from './products-admin/products-admin.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
 export function checkForm(component: AddProductComponent ){
-  if(component.isDirty){
+  if(component.isDirty()){
     return window.confirm("¿Seguro que desea salir del formulario?");
   }
   return true;

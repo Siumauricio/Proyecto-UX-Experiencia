@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Proyecto_UX_1.Models;
+using Backend_UX.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
-using Proyecto_UX_1.Controllers;
+using Backend_UX.Controllers;
 
-namespace Proyecto_UX_1.Controllers {
+namespace Backend_UX.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class MessageController:Hub {

@@ -44,7 +44,7 @@
           </li>
 
           <li *ngIf="auth.estaAutenticado()">
-            <a id="carrito">Carrito&nbsp;&nbsp;</a>
+            <a id="carrito" [routerLink]="['/carrito' ]">Carrito&nbsp;&nbsp;</a>
           </li>
           
           <li *ngIf="auth.estaAutenticado()">

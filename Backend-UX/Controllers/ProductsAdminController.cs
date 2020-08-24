@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Proyecto_UX_1.Models;
+using Backend_UX.Models;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Proyecto_UX_1.Controllers
+namespace Backend_UX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -19,9 +19,9 @@ namespace Proyecto_UX_1.Controllers
             db = products;
         }
 
-        [HttpGet("getProducts")]
-        public IActionResult getProducts() {
-            var data = (from p in db.Productos
+        [HttpGet("getProductsByMenu{id}")]
+        public IActionResult getProductsByMenu(int id) {
+            var data = (from p in db.Productos.Where(option => option.MenuIdMenu == id)
                         select new { p.IdProducto, p.Precio,p.Nombre, p.MenuIdMenu, p.Descripcion, p.Url }).ToList();
                 return Json(data);
         }
