@@ -29,6 +29,7 @@ import { ProductsListService } from './menu/Products.service';
 import { ReviewsService } from './menu/Reviews.service';
 import { ProductsAdminService } from './products-admin/products-admin.service';
 import { listCarritoComponent } from './compras/list-carrito.component';
+import { SendProductsService } from './menu/sendProducts.service';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { listCarritoComponent } from './compras/list-carrito.component';
   exports:[RouterModule],
   providers: [SignalRService,AuthService,
     ProductsListService,ReviewsService,ProductsAdminService,ProductRouterActivator,
-    {provide: 'canDeactivateCreateProduct', useValue: checkForm}
+    {provide: 'canDeactivateCreateProduct', useValue: checkForm},SendProductsService
 ],
   bootstrap: [AppComponent]
 })
