@@ -36,10 +36,13 @@
             <a style="text-decoration:none;" class="fas fa-user-plus fa-2x" [routerLink]="['/Registro']" id="reglog-ux1" > &nbsp;&nbsp;</a>
           </li>
 
+          <li *ngIf="!auth.estaAutenticado()">
+            <a style="text-decoration:none;" class="fas fa-list-ul fa-2x"  [routerLink]="['/listado']"  id="listado">  &nbsp;&nbsp;</a>
+          </li>
+
           <li  *ngIf="!auth.estaAutenticado()">
             <a style="text-decoration:none;" class="fas fa-sign-in-alt fa-2x" [routerLink]="['/Login']"  id="reglog-ux2">  &nbsp;&nbsp;</a>
           </li>
-
           <li  *ngIf="auth.estaAutenticado()">
             <a style="text-decoration:none;" class="fas fa-headset fa-2x" id="chat-ux" [routerLink]="['/Chat' ]">&nbsp;&nbsp;</a>
           </li>

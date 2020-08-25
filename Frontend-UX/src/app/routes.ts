@@ -15,6 +15,7 @@ import { EditProductComponent } from './products-admin/edit-product.component';
 import { ProductRouterActivator } from './products-admin/products-router-activator.service';
 import { AddProductComponent } from './products-admin/add-product.component';
 import { listCarritoComponent } from './compras/list-carrito.component';
+import { RegistroComprasComponent } from './registro-compras/registro-compras.component';
 
 export const AppRoutes: Routes = [
     {path: '', component: SlideShowComponent, pathMatch: 'full' },
@@ -30,5 +31,8 @@ export const AppRoutes: Routes = [
     {path: 'Menu-Usuarios', component: MenuUsuarioComponent},
     {path: 'Menu-Admin', component: MenuAdministradorComponent},
     {path: 'Chat', component: ChatComponent},
-    {path: 'carrito', component: listCarritoComponent}
+    {path: 'carrito', component: listCarritoComponent},
+    {path: 'listado', component: RegistroComprasComponent}
+
 ]
+

@@ -30,6 +30,7 @@ import { ReviewsService } from './menu/Reviews.service';
 import { ProductsAdminService } from './products-admin/products-admin.service';
 import { listCarritoComponent } from './compras/list-carrito.component';
 import { SendProductsService } from './menu/sendProducts.service';
+import { RegistroComprasComponent } from './registro-compras/registro-compras.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { SendProductsService } from './menu/sendProducts.service';
     ProductsComponent,
     EditProductComponent,
     AddProductComponent,
-    listCarritoComponent
+    listCarritoComponent,
+    RegistroComprasComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

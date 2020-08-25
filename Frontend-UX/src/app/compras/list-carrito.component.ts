@@ -25,6 +25,7 @@ export class listCarritoComponent implements OnInit {
     this.carritoService.setListaProductos(this.listaProductos);
     console.log(this.listaProductos);
   }
+  
   getTotalPago() {
     let total = 0;
     for (var i = 0; i < this.listaProductos.length; i++) {
