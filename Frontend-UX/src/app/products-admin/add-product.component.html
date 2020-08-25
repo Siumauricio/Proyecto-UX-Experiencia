@@ -2,13 +2,6 @@
     <h1>Nuevo Producto </h1>
     <hr>
   <form #newProductForm="ngForm" id="producto-agregar" (ngSubmit)="saveProduct(newProductForm.value)" autocomplete="off" novalidate style="padding-left: 0px;">
-    <!--
-    <div class="form-group" >
-        <label for="tipo">Tipo de Producto:</label>
-        <em *ngIf="newProductForm.controls.tipo?.invalid && (newProductForm.controls.tipo?.touched)">Requerido</em>
-        <input (ngModel)="tipo" name="tipo" required id="tipo" 
-        type="text" class="form-control"/>
-    </div> -->
     
     <div class="form-group" >
         <label for="tipo">Tipo de Producto:</label>
@@ -44,6 +37,7 @@
       <label for="imageUrl">Imagen:</label>
       <em *ngIf="newProductForm.controls.url?.invalid && newProductForm.controls.url?.touched && newProductForm.controls.url?.errors.required">Requerido</em>
       <input (ngModel)="url" name="url" required pattern=".*\/.*" id="url" type="text" class="form-control" placeholder="URL de la imagen" />
+      <hr>
       <img [src]="newProductForm.controls.url?.value" *ngIf="newProductForm.controls.url?.valid" />
     </div>
  

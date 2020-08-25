@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>Hola </head> 
+<body> 
+	<div class="container"> 
+	<h1>Lista de Chats</h1> 
+	<table class="table table-sm" class="table table-striped  table-bordered"> 
+		<thead> 
+		<tr> 
+      <th scope="col">ID Chat</th> 
+      <th scope="col">ID Usuario</th> 
+			<th scope="col">Nombre Usuario</th> 
+      <th scope="col">Status</th> 
+			<th scope="col">Abrir Chat</th> 
+			<th scope="col">Cerrar Chat</th> 
+      
+		</tr> 
+		</thead> 
+		<tbody> 
+      <tr *ngFor="let chat of chats">
+			<td> {{chat.idChat}}</td> 
+      <td>{{chat.usuariosIdUsuario}}</td> 
+      <td>{{chat.nombre}}</td> 
+      <td *ngIf="chat.status == '1'">{{chat.status}}</td> 
+      <td><button class="btn btn-primary" type="submit" id="ed1" title="Editar" style="width: 100px;" [routerLink]="['/Chat', chat.idChat]">Abrir chat</button>
+      <td><button class="btn btn-danger" type="submit" id="ed2" title="Editar" style="width: 100px;">Cerrar chat</button>
+		</tr> 
+		</tbody> 
+	</table> 
+	</div> 
+</body> 

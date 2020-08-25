@@ -1,29 +1,18 @@
 <div class="card container">
     <div class="card-header row">
-      <h2>Productos</h2>
-      <div class="col-md-6">
+      <label for="tipo">Selecione el tipo de producto:</label>
+        <div class="col-sm-2">
            <select (click)="filtrar()" name="menuIdMenu" required id="menuIdMenu" class="form-control"  placeholder="Seleccione">
-             <option value="1">Pizzas</option> 
+            <option selected disabled hidden style='display: none' value=''></option> 
+            <option value="1">Pizzas</option> 
              <option value="2">Bebidas</option>
             <option value="3">Postres</option>
-      </select>
+      </select> 
     </div>
-          <button [routerLink]="['new']" type="button" class="btn btn-primary" style="margin-left: 850px;">Agregar</button>
+    <button [routerLink]="['new']" type="button" class="btn btn-primary" style="margin-left: 600px;">Agregar</button>
     </div>  
     <div class="card-body">
       <div class="row">
-         <!-- 
-        <div class="col-md-2">Filter by:</div>
-        <div class="col-md-4">
-          <input type="text" [(ngModel)]="listFilter" />
-        </div>
-      </div>
-      <div class="row" *ngIf="listFilter">
-        <div class="col-md-6">
-          <h4>Filtered by: {{listFilter}}</h4>
-        </div>
-      </div>
-        -->
       <div class="table-responsive">
         <table class="table mb-0"
                *ngIf="lstProducts && lstProducts.length">
@@ -34,6 +23,8 @@
               <th>Nombre</th>
               <th>Descripcion</th>
               <th>Precio</th>
+              <th></th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -54,7 +45,13 @@
                 <button class="btn btn-outline-primary btn-sm" style="margin-bottom: 10px;" [routerLink]="['edit/',product.idProducto]">
                   Editar
                 </button>
+              </td>
+              <td>
                 <button (click)="Eliminar(product.idProducto)" class="btn btn-outline-danger btn-sm">Eliminar</button>
+              </td>
+              <td>
+                <button *ngIf="product.status==1" (click)="CambiarStatus(product,0)" class="btn btn-outline-warning btn-sm">Desactivar</button>
+                <button *ngIf="product.status==0" (click)="CambiarStatus(product,1)" class="btn btn-outline-warning btn-sm">Activar</button>
               </td>
             </tr>
           </tbody>
