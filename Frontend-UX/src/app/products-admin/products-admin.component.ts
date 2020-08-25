@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ProductsAdminService } from './products-admin.service';
 import { RouterLink, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Product } from '../menu/Producto';
 
 
 @Component({
@@ -17,9 +15,7 @@ export class ProductsComponent{
     imageWidth=50;
     imageMargin=2;
     
-    constructor(private productsAdmin: ProductsAdminService, 
-                private router: Router,
-                private toastr: ToastrService){
+    constructor(private productsAdmin: ProductsAdminService, private router: Router){
 
     }
 
@@ -36,25 +32,8 @@ export class ProductsComponent{
         if(window.confirm("¿Seguro que desea eliminar el producto?")){
             this.productsAdmin.deleteProduct(id).subscribe( res=>{     
             }, error=>{console.log(error)});
-            this.toastr.success("Se elimino el producto", "Hecho!")
-            return this.router.navigate(['/products'])  
+            this.router.navigate(['/products'])  
         }
-        return false;
-    }
-
-    CambiarStatus(form: Product, status: number){
-        var statusDescription;
-        form.status=status;
-        if(status==1)
-            statusDescription="Desactivar";
-        statusDescription="Activar";
-        if(window.confirm("¿Seguro que desea " +statusDescription+" el producto?")){
-            this.productsAdmin.changeStatus(form).subscribe( res=>{     
-            }, error=>{console.log(error)})
-            this.toastr.success("Se cambio el status", "Hecho!")
-            return this.router.navigate(['/products']) 
-        }
-        return false;
     }
 
 
