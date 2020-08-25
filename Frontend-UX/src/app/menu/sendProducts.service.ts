@@ -4,25 +4,46 @@ import { newReviews } from "./Producto";
 
 @Injectable()
 export class SendProductsService {
-  listaProductos = []
+  listaProductos: Carrito[] = [];
   private APIReviews = "http://localhost:5000/Reviews/getReviews";
   private APIAddReviews = "http://localhost:5000/Reviews/postAddReviews";
-  total = 0
   constructor(private http: HttpClient) {}
 
-  agregarProducto(producto){
-    this.listaProductos.push(producto);
+  agregarProducto(producto: Carrito) {
+    var data = this.listaProductos.find(function (element) {
+      return element.idProducto == producto.idProducto;
+    });
+    if (data != null) {
+      data.cantidad += 1;
+      data.total = data.cantidad * data.precioUnitario;
+    } else {
+      this.listaProductos.push(producto);
+    }
+    console.log(this.listaProductos);
   }
-  getListaProductos(){
-      return this.listaProductos;
+  getListaProductos() {
+    return this.listaProductos;
   }
-  setListaProductos(listaActualizada){
-      this.listaProductos = listaActualizada;
+  setListaProductos(listaActualizada) {
+    this.listaProductos = listaActualizada;
   }
-  actualizarTotal(total){
-    this.total = total;
+  cambiarCantidad(producto: Carrito, cantidad: number) {
+    var data = this.listaProductos.find(function (element) {
+      return element.idProducto == producto.idProducto;
+    });
+    if (data != null) {
+      data.cantidad = cantidad;
+      data.total = data.cantidad * data.precioUnitario;
+    }
   }
-  getTotal(){
-      return this.total;
-  }
+}
+
+export interface Carrito {
+  idProducto: number;
+  nombre: string;
+  descripcion: string;
+  precioUnitario: number;
+  total: number;
+  url: string;
+  cantidad: number;
 }

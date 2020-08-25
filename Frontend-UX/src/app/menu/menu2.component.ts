@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ReviewsService } from "./Reviews.service";
 import { ProductsListService } from "./Products.service";
-import { SendProductsService } from "./sendProducts.service";
+import { SendProductsService, Carrito } from "./sendProducts.service";
 
 @Component({
   selector: "menu2-class",
@@ -58,7 +58,16 @@ export class Menu2Component implements OnInit {
     this.hideOptionReview();
   }
   agregarCarrito(producto) {
-    this.carritoService.agregarProducto(producto);
+    var pr = <Carrito>{
+      idProducto: +producto.idProducto,
+      nombre: producto.nombre,
+      descripcion: producto.descripcion,
+      precioUnitario: +producto.precio,
+      total: +producto.precio,
+      url: producto.url,
+      cantidad: 1,
+    };
+    this.carritoService.agregarProducto(pr);
   }
   hideOptionReview() {
     document.getElementById("esconder").style.display = "none";

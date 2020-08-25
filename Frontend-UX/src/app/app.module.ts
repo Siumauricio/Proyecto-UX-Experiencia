@@ -30,6 +30,9 @@ import { ReviewsService } from './menu/Reviews.service';
 import { ProductsAdminService } from './products-admin/products-admin.service';
 import { listCarritoComponent } from './compras/list-carrito.component';
 import { SendProductsService } from './menu/sendProducts.service';
+import { PagosService } from './compras/pagos.service';
+import { RegistroComprasComponent } from './registro-compras/registro.component';
+import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.orden.component';
 
 
 @NgModule({
@@ -49,7 +52,9 @@ import { SendProductsService } from './menu/sendProducts.service';
     ProductsComponent,
     EditProductComponent,
     AddProductComponent,
-    listCarritoComponent
+    listCarritoComponent,
+    RegistroComprasComponent,
+    DetalleOrdenComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -63,7 +68,7 @@ import { SendProductsService } from './menu/sendProducts.service';
   exports:[RouterModule],
   providers: [SignalRService,AuthService,
     ProductsListService,ReviewsService,ProductsAdminService,ProductRouterActivator,
-    {provide: 'canDeactivateCreateProduct', useValue: checkForm},SendProductsService
+    {provide: 'canDeactivateCreateProduct', useValue: checkForm},SendProductsService,PagosService
 ],
   bootstrap: [AppComponent]
 })

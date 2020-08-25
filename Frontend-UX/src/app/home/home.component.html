@@ -37,21 +37,28 @@
           </li>
 
           <li  *ngIf="!auth.estaAutenticado()">
-            <a style="text-decoration:none;" class="fas fa-sign-in-alt fa-2x" [routerLink]="['/Login']"  id="reglog-ux2">  &nbsp;&nbsp;</a>
+            <a style="text-decoration:none;"  class="fas fa-sign-in-alt fa-2x" [routerLink]="['/Login']"  id="reglog-ux2">  &nbsp;&nbsp;</a>
           </li>
+
+
 
           <li  *ngIf="auth.estaAutenticado()">
             <a style="text-decoration:none;" class="fas fa-headset fa-2x" id="chat-ux" [routerLink]="['/Chat' ]">&nbsp;&nbsp;</a>
           </li>
 
           <li *ngIf="auth.estaAutenticado()">
-            <a style="text-decoration:none;" class="fas fa-cart-plus fa-2x" id="carrito" [routerLink]="['/carrito' ]">&nbsp;&nbsp;</a>
+            <a style="text-decoration:none;" *ngIf="!auth.esAdmin()" class="fas fa-cart-plus fa-2x" id="carrito" [routerLink]="['/carrito' ]">&nbsp;&nbsp;</a>
           </li>
           
+          <li *ngIf="auth.estaAutenticado()">
+            <a style="text-decoration:none;" *ngIf="!auth.esAdmin()" class="fas fa-list-ul fa-2x"  [routerLink]="['/listado']"  id="listado">  &nbsp;&nbsp;</a>
+          </li>
+
           <li *ngIf="auth.estaAutenticado()">
             <a  style="text-decoration:none;" class="fas fa-sign-out-alt fa-2x" id="logout-ux" [routerLink]="['/Home']" (click)="Logout()">&nbsp;&nbsp;</a>
           </li>
 
+          
         </ul>
       </div>
     </div>

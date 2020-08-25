@@ -75,6 +75,7 @@ export interface Usuario {
   contrasena: string;
   rol: number;
   idUsuario: number;
+  
 }
 
 export interface Usuario_Reg {

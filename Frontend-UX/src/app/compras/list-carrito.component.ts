@@ -1,20 +1,17 @@
 import { Component, OnInit, ɵConsole } from "@angular/core";
 import { SendProductsService } from "../menu/sendProducts.service";
+import { PagosService } from './pagos.service';
 
 @Component({
   templateUrl: "./list-carrito.component.html",
 })
 export class listCarritoComponent implements OnInit {
   listaProductos = [];
-  subTotal = 0;
-  total
-  constructor(private carritoService: SendProductsService) {}
+  constructor(private carritoService: SendProductsService,private pagosService:PagosService) {}
 
   ngOnInit() {
-    console.log(
-      "Listado de productos actuales : ",
-      this.carritoService.getListaProductos()
-    );
+    console.log("Listado de productos actuales : ",this.carritoService.getListaProductos());
+
     this.listaProductos = this.carritoService.getListaProductos();
   }
 
@@ -29,15 +26,22 @@ export class listCarritoComponent implements OnInit {
     let total = 0;
     for (var i = 0; i < this.listaProductos.length; i++) {
       if (this.listaProductos[i]) {
-        total += this.listaProductos[i].precio;
+        total += this.listaProductos[i].total;
       }
     }
-    this.carritoService.actualizarTotal(total + this.subTotal); 
-    return total + this.subTotal;
+    return total;
   }
 
   cambiarTotal(producto) {
     var valor = +(document.getElementById("valor"+producto.idProducto) as HTMLInputElement).value;
-    this.subTotal = producto.precio * valor - producto.precio;
+   this.carritoService.cambiarCantidad(producto,valor);
+  }
+  pagarProductos(){
+    if(window.confirm("Desea pagar ?")){
+      console.log("entre")
+      this.pagosService.ingresarCompra(this.listaProductos,this.getTotalPago());
+      this.listaProductos = []
+      this.carritoService.listaProductos = []
+    }
   }
 }
