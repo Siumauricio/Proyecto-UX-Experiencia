@@ -12,8 +12,9 @@ namespace Backend_UX.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ProductsAdminController : Controller
+     public class ProductsAdminController : Controller
     {
+        
         public Models.ProyectoUXContext db;
         public ProductsAdminController(Models.ProyectoUXContext products) {
             db = products;
@@ -22,14 +23,14 @@ namespace Backend_UX.Controllers
         [HttpGet("getProductsByMenu{id}")]
         public IActionResult getProductsByMenu(int id) {
             var data = (from p in db.Productos.Where(option => option.MenuIdMenu == id)
-                        select new { p.IdProducto, p.Precio,p.Nombre, p.MenuIdMenu, p.Descripcion, p.Url }).ToList();
+                        select new { p.IdProducto, p.Precio,p.Nombre, p.MenuIdMenu, p.Descripcion, p.Url, p.Status }).ToList();
                 return Json(data);
         }
 
         [HttpGet("getProductById{id}")]
         public IActionResult getProductById(int id) {
             var data = (from p in db.Productos.Where(option => option.IdProducto == id)
-                        select new { p.IdProducto, p.Precio, p.Nombre, p.MenuIdMenu, p.Descripcion, p.Url }).ToList();
+                        select new { p.IdProducto, p.Precio, p.Nombre, p.MenuIdMenu, p.Descripcion, p.Url, p.Status }).ToList();
             if (data.Count()==0)
             {
               return Ok(false);
@@ -65,5 +66,13 @@ namespace Backend_UX.Controllers
             return Ok();
         }
 
+        [HttpPut("ProductStatus")]
+        public IActionResult ProductStatus([FromBody] Productos producto)
+        {
+            db.Productos.Attach(producto);
+            db.Entry(producto).State = EntityState.Modified;
+            db.SaveChanges();
+            return Ok();
+        }
     }
 }

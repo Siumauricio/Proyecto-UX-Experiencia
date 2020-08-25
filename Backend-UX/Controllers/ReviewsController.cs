@@ -9,8 +9,9 @@ namespace Proyecto_UX_1.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ReviewsController : Controller
+     public class ReviewsController : Controller
     {
+        
         public Models.ProyectoUXContext db;
         public ReviewsController(Models.ProyectoUXContext reviews)
         {
