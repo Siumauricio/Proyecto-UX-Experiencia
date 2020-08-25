@@ -45,7 +45,6 @@ export class AuthService {
   getUser() {
     return this.user;
   }
-  
   estaAutenticado() {
     return !!this.user;
   }
@@ -76,6 +75,7 @@ export interface Usuario {
   contrasena: string;
   rol: number;
   idUsuario: number;
+  
 }
 
 export interface Usuario_Reg {

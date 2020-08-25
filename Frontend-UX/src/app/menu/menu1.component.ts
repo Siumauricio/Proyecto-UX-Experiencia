@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsListService } from "./Products.service";
 import { ReviewsService } from "./Reviews.service";
-import { SendProductsService } from './sendProducts.service';
-import { ToastrService } from 'ngx-toastr';
+import { SendProductsService, Carrito } from "./sendProducts.service";
 
 @Component({
   selector: "menu1-class",
@@ -20,9 +19,7 @@ export class Menu1Component implements OnInit {
   constructor(
     private productsList: ProductsListService,
     private reviews: ReviewsService,
-    private carritoService:SendProductsService,
-    private toastr:ToastrService
-    
+    private carritoService: SendProductsService
   ) {}
 
   ngOnInit() {
@@ -59,8 +56,16 @@ export class Menu1Component implements OnInit {
     this.hideOptionReview();
   }
   agregarCarrito(producto) {
-    this.carritoService.agregarProducto(producto);
-    return this.toastr.success("Se añadio al carrito", "Listo!")
+    var pr = <Carrito>{
+      idProducto: +producto.idProducto,
+      nombre: producto.nombre,
+      descripcion: producto.descripcion,
+      precioUnitario: +producto.precio,
+      total: +producto.precio,
+      url: producto.url,
+      cantidad: 1,
+    };
+    this.carritoService.agregarProducto(pr);
   }
 
   hideOptionReview() {

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ProductsAdminService } from './products-admin.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { newProduct } from '../menu/Producto';
 
 
 @Component({
@@ -42,12 +41,11 @@ export class AddProductComponent{
 
     }
 
-saveProduct(form: newProduct){
-    form.status=1;
+saveProduct(form){
     this.productsAdmin.addProduct(form).subscribe(res =>{
        },error=>{ console.log(error)});
        this.toastr.success("Se agrego", "Hecho!")
-       return this.router.navigate(['products']);
+       this.router.navigate(['products']);
 }
 
 cancel(){

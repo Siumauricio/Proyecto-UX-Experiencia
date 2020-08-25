@@ -1,0 +1,29 @@
+
+<html>
+
+<body> 
+	<div class="container"> 
+	<h1>Lista de Ordenes</h1> 
+	<table class="table table-sm" class="table table-striped  table-bordered"> 
+		<thead> 
+		<tr> 
+        <th scope="col">ID Orden</th> 
+        <th scope="col">Fecha Compra</th> 
+        <th scope="col">Monto Total</th> 
+        <th scope="col">Ver Detalles</th> 
+		</tr> 
+		</thead> 
+		<tbody> 
+      <tr *ngFor="let orden of listaOrdenes">
+	  <td> {{orden.idOrden}}</td> 
+      <td>{{orden.fechaOrden}}</td> 
+      <td>{{orden.totalOrden}}</td>
+      <!-- <td *ngIf="chat.status == '1'">{{chat.status}}</td>  -->
+      <td><button class="btn btn-primary" type="submit" id="ed1" title="Editar" style="width: 100px;" [routerLink]="['detalle/' , orden.idOrden]">Abrir Detalles</button>
+      <!-- <td><button class="btn btn-danger" type="submit" id="ed2" title="Editar" style="width: 100px;">Cerrar chat</button> -->
+		<!-- </tr>  -->
+		</tbody> 
+	</table> 
+	</div> 
+</body> 
+</html>

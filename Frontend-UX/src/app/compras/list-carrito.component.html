@@ -32,7 +32,7 @@
                     <div>
                       <div class="def-number-input number-input safari_only mb-0 w-100">
                         Cantidad:
-                        <input id="valor{{producto.idProducto}}" type="number" value="1"  min="1" (click)="cambiarTotal(producto)"/>
+                        <input id="valor{{producto.idProducto}}" type="number" value="{{producto.cantidad}}"  min="1" (click)="cambiarTotal(producto)"/>
 
                       </div>
                       <small id="passwordHelpBlock" class="form-text text-muted text-center">
@@ -46,7 +46,7 @@
                       <a type="button" class="card-link-secondary small text-uppercase mr-3"  (click)= "borrarProducto(producto)"><i
                           class="fas fa-trash-alt mr-1"></i> Eliminar Producto </a>
                     </div>
-                    <p class="mb-0"><span><strong>${{producto.precio}}</strong></span></p>
+                    <p class="mb-0"><span><strong>${{producto.precioUnitario}}</strong></span></p>
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@
               </li>
             </ul>
   
-            <button type="button" class="btn btn-primary btn-block waves-effect waves-light">Realizar pago</button>
+            <button (click)="pagarProductos()"type="button" class="btn btn-primary btn-block waves-effect waves-light">Pagar</button>
   
           </div>
         </div>
