@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
     this.user = this.auth.getUser();
      console.log(this.auth.getUser());
   }
+  
   Logout() {
     this.auth.user = null;
   }
+
+
 }

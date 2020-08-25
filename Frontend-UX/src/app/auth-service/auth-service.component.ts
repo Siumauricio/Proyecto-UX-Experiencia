@@ -45,6 +45,7 @@ export class AuthService {
   getUser() {
     return this.user;
   }
+  
   estaAutenticado() {
     return !!this.user;
   }

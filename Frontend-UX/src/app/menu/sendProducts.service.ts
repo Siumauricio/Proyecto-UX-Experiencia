@@ -5,8 +5,8 @@ import { newReviews } from "./Producto";
 @Injectable()
 export class SendProductsService {
   listaProductos = []
-  private APIReviews = "http://localhost:5000/Reviews/getReviews";
-  private APIAddReviews = "http://localhost:5000/Reviews/postAddReviews";
+  private APIAddOrder = "http://localhost:5000/Shopping/addOrder";
+  private APIAddOrderDetails = "http://localhost:5000/Shopping/addOrderDetails";
   total = 0
   constructor(private http: HttpClient) {}
 
@@ -25,4 +25,12 @@ export class SendProductsService {
   getTotal(){
       return this.total;
   }
+
+  saveOrder(form){
+    
+    return this.http.post(this.APIAddOrder,form);
+
+  }
+
+
 }

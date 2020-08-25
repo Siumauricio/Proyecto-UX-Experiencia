@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductsListService } from "./Products.service";
 import { ReviewsService } from "./Reviews.service";
 import { SendProductsService } from './sendProducts.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "menu1-class",
@@ -19,7 +20,9 @@ export class Menu1Component implements OnInit {
   constructor(
     private productsList: ProductsListService,
     private reviews: ReviewsService,
-    private carritoService:SendProductsService
+    private carritoService:SendProductsService,
+    private toastr:ToastrService
+    
   ) {}
 
   ngOnInit() {
@@ -57,6 +60,7 @@ export class Menu1Component implements OnInit {
   }
   agregarCarrito(producto) {
     this.carritoService.agregarProducto(producto);
+    return this.toastr.success("Se añadio al carrito", "Listo!")
   }
 
   hideOptionReview() {
