@@ -28,6 +28,12 @@ namespace Proyecto_UX_1.Controllers {
             model.Rol = 1;
             db.Usuarios.Add(model);
             db.SaveChanges();
+            var usuario = new Clientes {
+                UsuariosIdUsuario = model.IdUsuario,
+                Telefono = "999999"
+            };
+            db.Clientes.Add(usuario);
+            db.SaveChanges();
             return Ok(data);
         }
 
@@ -43,7 +49,7 @@ namespace Proyecto_UX_1.Controllers {
         [HttpPost("getOrder/{id}")]
         public IActionResult getOrden(int id) {
             var data = db.Clientes.FirstOrDefault(x => x.UsuariosIdUsuario == id);
-
+          
             var orders = db.Ordenes.Where(x => x.ClientesIdCliente == data.IdCliente)
                 .Select(x => new { x.IdOrden ,x.TotalOrden ,x.FechaOrden}).ToList();
             return Ok(orders);

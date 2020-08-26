@@ -1,13 +1,14 @@
 import { Component, OnInit, ɵConsole } from "@angular/core";
 import { SendProductsService } from "../menu/sendProducts.service";
 import { PagosService } from './pagos.service';
+import { AuthService } from '../auth-service/auth-service.component';
 
 @Component({
   templateUrl: "./list-carrito.component.html",
 })
 export class listCarritoComponent implements OnInit {
   listaProductos = [];
-  constructor(private carritoService: SendProductsService,private pagosService:PagosService) {}
+  constructor(private carritoService: SendProductsService,private pagosService:PagosService,private authService:AuthService) {}
 
   ngOnInit() {
     console.log("Listado de productos actuales : ",this.carritoService.getListaProductos());

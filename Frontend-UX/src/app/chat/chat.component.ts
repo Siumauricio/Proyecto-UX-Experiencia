@@ -72,6 +72,7 @@ export class ChatComponent implements OnInit {
      this.signalR.sendMessageToCL(this.infoChat.idChat,this.mensaje)
 
     }
+    (document.getElementById("mensaje") as HTMLInputElement).value="";
   }
   verMensajes(chat) {
     this.messages = [];

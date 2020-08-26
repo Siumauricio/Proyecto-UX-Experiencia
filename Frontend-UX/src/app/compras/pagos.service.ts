@@ -11,6 +11,7 @@ export class PagosService {
 
   private APICompras = "http://localhost:5000/api/Pagos/IngresarCompra";
   private APIOrden = "http://localhost:5000/api/Pagos/IngresarOrdenes";
+  private APIEMAIL = "http://localhost:5000/api/Pagos/enviarEmail";
 
   constructor(
     private http: HttpClient,
@@ -31,7 +32,9 @@ export class PagosService {
       (error) => {},
       () => {
         console.log(listaProductos);
+        var productos = "";
         for (var i = 0; i < listaProductos.length; i++) {
+
           var Orden_Producto = {
             OrdenesIdOrden: this.idOrden,
             ProductosIdProducto: listaProductos[i].idProducto,
@@ -42,13 +45,23 @@ export class PagosService {
             (res) => {},
             (error) => {},
             () => {
-             
             }
           );
         }
-        this.toastrService.success("Compra realizada correctamente!");
+
+        this.http.post(this.APIEMAIL +"/"+this.authService.getUser()[0].correo+"/"+this.idOrden+"/"+total,null).subscribe();
+
+        this.toastrService.success("Compra realizada correctamente!\nSe te ha enviado un correo electronico de confirmacion");
         this.router.navigate(["/Home"]);
       }
+    );
+  }
+
+  EnviarEmail(correo) {
+    this.http.post(this.APIEMAIL, correo).subscribe(
+      (res) => {},
+      (error) => {},
+      () => {}
     );
   }
 }

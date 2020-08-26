@@ -7,6 +7,7 @@ import { ReviewsService } from 'src/app/menu/Reviews.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
+  selector:'app-compras',
   templateUrl: "./detalle.orden.component.html",
 })
 export class DetalleOrdenComponent implements OnInit {

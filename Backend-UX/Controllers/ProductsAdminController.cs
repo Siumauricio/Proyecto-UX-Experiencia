@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Backend_UX.Models;
+using Proyecto_UX_1.Models;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend_UX.Controllers
+namespace Proyecto_UX_1.Controllers
 {
     [ApiController]
     [Route("[controller]")]
      public class ProductsAdminController : Controller
     {
         
-        public Models.ProyectoUXContext db;
+        public ProyectoUXContext db;
         public ProductsAdminController(Models.ProyectoUXContext products) {
             db = products;
         }
