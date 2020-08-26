@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import { ProductsAdminService } from './products-admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -33,8 +34,10 @@ precio;
 descripcion;
 url;
 
-constructor(private productsAdmin: ProductsAdminService, private route: ActivatedRoute,private router: Router ){
-
+constructor(private productsAdmin: ProductsAdminService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService ){
 }
 
 ngOnInit(){
@@ -55,11 +58,12 @@ editProduct(form){
     form.url=(document.getElementById('url') as HTMLInputElement).value;
     this.productsAdmin.editProduct(form).subscribe(res =>{
         },error=>{ console.log(error)});
-        this.router.navigate(['products']);
+        this.toastr.success("Se edito", "Hecho!")
+        return this.router.navigate(['products']);
 }
 
 cancel(){
-    this.router.navigate(['products']);
+     return this.router.navigate(['products']);
 }
 
 }

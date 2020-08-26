@@ -15,6 +15,8 @@ private APIProductosPorId = 'http://localhost:5000/ProductsAdmin/getProductById'
 private APIEditProducto = 'http://localhost:5000/ProductsAdmin/putProduct';
 private APIAddProducto = 'http://localhost:5000/ProductsAdmin/addProduct';
 private APIDeleteProducto = 'http://localhost:5000/ProductsAdmin/deleteProduct';
+private APIChangeStatus = 'http://localhost:5000/ProductsAdmin/ProductStatus';
+
 
 getProductosByMenu(idMenu): Observable<Product[]>{
     return this.http.get<Product[]>(this.APIProductosByMenu+idMenu);
@@ -36,6 +38,10 @@ addProduct(form){
 
 deleteProduct(id){
     return this.http.delete(this.APIDeleteProducto+(+id));
+}
+
+changeStatus(form: Product){
+    return this.http.put(this.APIChangeStatus,form);
 }
 
 

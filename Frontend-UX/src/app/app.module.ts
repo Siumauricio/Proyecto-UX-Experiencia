@@ -54,7 +54,9 @@ import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.
     AddProductComponent,
     listCarritoComponent,
     RegistroComprasComponent,
-    DetalleOrdenComponent
+    DetalleOrdenComponent,
+
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -5,7 +5,12 @@
 <title></title>
 </head>
 <body>
-<div class="container">
+    <div class="d-flex justify-content-center">
+        <div  *ngIf="!load" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+<div *ngIf="load" class="container">
     <div class="row">
         <div id="object" class="col-md-4" *ngFor ="let pr of lstProducts; index as i;">
             <div class="card  Prod Prodhover ">
@@ -27,9 +32,9 @@
                 </div>
                 <div class="container">
                 <div class="row buttons">
-                    <button type="button" class="btn btn-primary" (click)="showReviews(pr)" data-toggle="modal" data-target="#reviewsModal" style="margin-right:30px;">Reviews
+                    <button type="button" class="btn btn-primary"  style="margin-right:30px;" (click)="agregarCarrito(pr)">Añadir</button>
+                    <button type="button" class="btn btn-info" (click)="showReviews(pr)" data-toggle="modal" data-target="#reviewsModal">Reviews
                     </button>
-                    <button type="button" class="btn btn-primary"  (click)="agregarCarrito(pr)">Añadir</button>
                 </div>
                 </div>
             </div>

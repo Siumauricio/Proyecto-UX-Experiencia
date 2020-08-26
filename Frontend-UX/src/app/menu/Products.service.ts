@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Product } from './Producto';
 
 
 @Injectable()
@@ -12,7 +14,7 @@ export class ProductsListService{
     private APIPostres = 'http://localhost:5000/Menu/getPostres';
 
     constructor(private http : HttpClient){}
-
+  lst:any;
 
     getDrinks(){
       return  this.http.get(this.APIBebidas)
@@ -20,7 +22,7 @@ export class ProductsListService{
 
 
     getPizzas(){
-      return  this.http.get(this.APIPizzas)
+      return  this.http.get<Product[]>(this.APIPizzas)
     }
 
     getDessert(){

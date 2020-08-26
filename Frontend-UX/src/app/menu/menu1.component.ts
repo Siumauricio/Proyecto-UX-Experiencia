@@ -15,6 +15,7 @@ export class Menu1Component implements OnInit {
   id: string;
   range: string;
   comments: string;
+  load:boolean=false;
 
   constructor(
     private productsList: ProductsListService,
@@ -23,6 +24,7 @@ export class Menu1Component implements OnInit {
   ) {}
 
   ngOnInit() {
+    setTimeout(()=>{
     this.productsList.getPizzas().subscribe(
       (res) => {
         this.lstProducts = res;
@@ -31,6 +33,9 @@ export class Menu1Component implements OnInit {
         console.log(error);
       }
     );
+    this.load =true;
+    },700
+    )
   }
 
   showReviews(pr) {

@@ -16,6 +16,8 @@ export class Menu3Component {
   range: string;
   comments: string;
 
+  load:boolean=false;
+  
   constructor(
     private productsList: ProductsListService,
     private reviews: ReviewsService,
@@ -23,15 +25,18 @@ export class Menu3Component {
   ) {}
 
   ngOnInit() {
-    // document.getElementById('slideshow').style.display='none';
-    this.productsList.getDessert().subscribe(
-      (res) => {
-        this.lstProducts = res;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    setTimeout(()=>{
+      this.productsList.getDessert().subscribe(
+        (res) => {
+          this.lstProducts = res;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+      this.load =true;
+      },700
+      )
   }
 
   showReviews(pr) {

@@ -13,6 +13,7 @@ export class newProduct{
     menuIdMenu: number;
     descripcion: string;
     url: string;
+    status:number;
 }
 
 
@@ -23,6 +24,7 @@ export class Product{
     menuIdMenu: number;
     descripcion: string;
     url: string;
+    status:number;
 }
 
 export class lstCarrito{

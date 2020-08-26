@@ -18,7 +18,7 @@
 }
 
 body{
-    background-color: rgb(244, 250, 250)
+    background-color: rgb(244, 250, 250);
 }
 
 .styleMenu{
@@ -36,11 +36,12 @@ body{
     color: aliceblue;
 }
 
-.footer{
+footer{
     padding: 30px;
     background-color: rgb(65, 64, 66); 
     color: aliceblue;
     margin-top: 70px;
+    bottom: 0;
 }
 
 .logo{
