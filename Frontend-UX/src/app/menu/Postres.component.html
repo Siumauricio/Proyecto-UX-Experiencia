@@ -6,11 +6,11 @@
 </head>
 <body>
     <div class="d-flex justify-content-center">
-        <div  *ngIf="!load" class="spinner-border" role="status">
+        <div  *ngIf="!load" class="spinner-border" role="status" style="margin-top: 300px;">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-<div *ngIf="load" class="container">
+<div *ngIf="load" class="container" style="margin-top: 0px;">
     <div class="row">
         <div id="object" class="col-md-4" *ngFor ="let pr of lstProducts; index as i;">
             <div class="card  Prod Prodhover ">

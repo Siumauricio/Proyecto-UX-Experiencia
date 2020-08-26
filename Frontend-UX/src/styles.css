@@ -40,8 +40,8 @@ footer{
     padding: 30px;
     background-color: rgb(65, 64, 66); 
     color: aliceblue;
-    margin-top: 70px;
-    bottom: 0;
+    margin-top: 600px;
+    width: 100%;
 }
 
 .logo{

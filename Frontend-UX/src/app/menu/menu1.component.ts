@@ -6,6 +6,7 @@ import { SendProductsService, Carrito } from "./sendProducts.service";
 @Component({
   selector: "menu1-class",
   templateUrl: "./Pizzas.component.html",
+
 })
 export class Menu1Component implements OnInit {
   lstProducts: any;
@@ -36,6 +37,8 @@ export class Menu1Component implements OnInit {
     this.load =true;
     },700
     )
+
+
   }
 
   showReviews(pr) {
@@ -80,4 +83,6 @@ export class Menu1Component implements OnInit {
   showOptionReview() {
     document.getElementById("esconder").style.display = "inline";
   }
+
+
 }
