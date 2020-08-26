@@ -9,26 +9,15 @@ import { Product } from './Producto';
 
 export class ProductsListService{
 
-    private APIBebidas = 'http://localhost:5000/Menu/getBebidas';
-    private APIPizzas = 'http://localhost:5000/Menu/getPizzas';
-    private APIPostres = 'http://localhost:5000/Menu/getPostres';
+    private APIProducts = 'http://localhost:5000/Menu/getProducts';
 
     constructor(private http : HttpClient){}
   lst:any;
 
-    getDrinks(){
-      return  this.http.get(this.APIBebidas)
+    getProducts(idMenu: number){
+      return  this.http.get(this.APIProducts+idMenu)
     }
 
-
-    getPizzas(){
-      return  this.http.get<Product[]>(this.APIPizzas)
-    }
-
-    getDessert(){
-      return  this.http.get(this.APIPostres)
-
-    }
 
 
 }

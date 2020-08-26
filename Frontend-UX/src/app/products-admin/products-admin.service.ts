@@ -32,7 +32,7 @@ editProduct(form){
 
 addProduct(form){
     let data: newProduct=<newProduct>{"precio": +form.precio ,"nombre": form.nombre , "menuIdMenu": +form.menuIdMenu,
-    "descripcion": form.descripcion,"url": form.url};
+    "descripcion": form.descripcion,"url": form.url, "status": form.status};
     return this.http.post(this.APIAddProducto,data);
 }
 

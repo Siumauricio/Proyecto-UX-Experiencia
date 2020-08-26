@@ -5,15 +5,15 @@
 <title></title>
 </head>
 <body>
-    <div class="d-flex justify-content-center">
-        <div  *ngIf="!load" class="spinner-border" role="status" style="margin-top: 300px;">
-            <span class="sr-only">Loading...</span>
-        </div>
+<div class="d-flex justify-content-center">
+    <div  *ngIf="!load" class="spinner-border" role="status" style="margin-top: 300px;">
+        <span class="sr-only">Loading...</span>
     </div>
-<div  *ngIf="load" class="container" styles="margin-top: 0px;">
+</div>
+<div  *ngIf="load" class="container"  styles="margin-top: 0px;">
     <div class="row">
         <div id="object" class="col-md-4" *ngFor ="let pr of lstProducts; index as i;">
-            <div class="card  Prod Prodhover ">
+            <div class="card  Prod Prodhover " >
                 <div>
                     <img src="{{pr.url}}" alt="" width="347" height="340" >
                 </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="container">
                 <div class="row buttons">
-                    <button *ngIf="auth.estaAutenticado()" type="button" class="btn btn-primary"  (click)="agregarCarrito(pr)">Añadir</button>
+                    <button  *ngIf="auth.estaAutenticado()" type="button" class="btn btn-primary" (click)="agregarCarrito(pr)">Añadir</button>
                     <button type="button" class="btn btn-info" (click)="showReviews(pr)" data-toggle="modal" data-target="#reviewsModal" style="margin-left:50px;">Reviews
                     </button>
                 </div>

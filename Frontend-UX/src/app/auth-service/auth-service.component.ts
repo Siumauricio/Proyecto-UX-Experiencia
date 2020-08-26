@@ -45,9 +45,11 @@ export class AuthService {
   getUser() {
     return this.user;
   }
+
   estaAutenticado() {
     return !!this.user;
   }
+  
   esAdmin(){
     if (this.user[0].rol==2){
       return true;

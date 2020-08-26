@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ReviewsService } from "./Reviews.service";
 import { ProductsListService } from "./Products.service";
 import { SendProductsService, Carrito } from "./sendProducts.service";
+import { AuthService } from '../auth-service/auth-service.component';
 
 @Component({
   selector: "menu2-class",
@@ -20,13 +21,14 @@ export class Menu2Component implements OnInit {
   constructor(
     private productsList: ProductsListService,
     private reviews: ReviewsService,
-    private carritoService: SendProductsService
+    private carritoService: SendProductsService,
+    public auth: AuthService
   ) {}
 
   ngOnInit() {
     //document.getElementById('slideshow').style.display='none';
     setTimeout(()=>{
-      this.productsList.getDrinks().subscribe(
+      this.productsList.getProducts(2).subscribe(
         (res) => {
           this.lstProducts = res;
         },

@@ -5,11 +5,11 @@ import { SendProductsService, Carrito } from "./sendProducts.service";
 import { AuthService } from '../auth-service/auth-service.component';
 
 @Component({
-  selector: "menu1-class",
-  templateUrl: "./Pizzas.component.html",
+  selector: "menu4-class",
+  templateUrl: "./Promociones.component.html",
 
 })
-export class Menu1Component implements OnInit {
+export class Menu4Component implements OnInit {
   lstProducts: any;
   lstReviews: any;
   url: string;
@@ -28,7 +28,7 @@ export class Menu1Component implements OnInit {
 
   ngOnInit() {
     setTimeout(()=>{
-    this.productsList.getProducts(1).subscribe(
+    this.productsList.getProducts(4).subscribe(
       (res) => {
         this.lstProducts = res;
       },
@@ -57,6 +57,7 @@ export class Menu1Component implements OnInit {
       }
     );
   }
+
   addReviews() {
     this.range = (document.getElementById("range") as HTMLInputElement).value;
     this.comments = (document.getElementById(
@@ -65,6 +66,7 @@ export class Menu1Component implements OnInit {
     this.reviews.addReviews(this.id, this.range, this.comments);
     this.hideOptionReview();
   }
+
   agregarCarrito(producto) {
     var pr = <Carrito>{
       idProducto: +producto.idProducto,

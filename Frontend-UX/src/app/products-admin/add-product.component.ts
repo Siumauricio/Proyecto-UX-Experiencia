@@ -22,8 +22,9 @@ import { newProduct } from '../menu/Producto';
 })
 
 export class AddProductComponent{
+    isSave:Boolean=false;
     nombre;
-    menuIdMenu;
+    menuIdMenu
     precio;
     descripcion;
     url;
@@ -43,6 +44,7 @@ export class AddProductComponent{
     }
 
     saveProduct(form: newProduct){
+        this.isSave=true;
         form.status=1;
         this.productsAdmin.addProduct(form).subscribe(res =>{
        },error=>{ console.log(error)});

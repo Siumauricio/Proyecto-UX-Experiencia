@@ -17,6 +17,7 @@ import { AddProductComponent } from './products-admin/add-product.component';
 import { listCarritoComponent } from './compras/list-carrito.component';
 import { RegistroComprasComponent } from './registro-compras/registro.component';
 import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.orden.component';
+import { Menu4Component } from './menu/menu4.component';
 
 export const AppRoutes: Routes = [
     {path: '', component: SlideShowComponent, pathMatch: 'full' },
@@ -24,6 +25,7 @@ export const AppRoutes: Routes = [
     {path: 'menu/Pizzas', component: Menu1Component},
     {path: 'menu/Bebidas', component: Menu2Component},
     {path: 'menu/Postres', component: Menu3Component},
+    {path: 'menu/Promociones', component: Menu4Component},
     {path: 'Registro', component: RegistroComponent},
     {path: 'Login', component: LoginComponent},
     {path: 'products', component: ProductsComponent},
@@ -34,7 +36,6 @@ export const AppRoutes: Routes = [
     {path: 'Chat', component: ChatComponent},
     {path: 'carrito', component: listCarritoComponent},
     {path: 'listado', component: RegistroComprasComponent},
-    {path: 'listado/detalle/:id', component: DetalleOrdenComponent }
-
+    {path: 'listado/detalle/:id', component: DetalleOrdenComponent}
 
 ]

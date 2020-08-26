@@ -33,6 +33,7 @@ import { SendProductsService } from './menu/sendProducts.service';
 import { PagosService } from './compras/pagos.service';
 import { RegistroComprasComponent } from './registro-compras/registro.component';
 import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.orden.component';
+import { Menu4Component } from './menu/menu4.component';
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.
     listCarritoComponent,
     RegistroComprasComponent,
     DetalleOrdenComponent,
-
+    Menu4Component
 
   ],
   imports: [
@@ -77,7 +78,7 @@ import { DetalleOrdenComponent } from './registro-compras/detalle-orden/detalle.
 export class AppModule { }
 
 export function checkForm(component: AddProductComponent ){
-  if(component.isDirty()){
+  if(component.isDirty()&& !component.isSave){
     return window.confirm("¿Seguro que desea salir del formulario?");
   }
   return true;

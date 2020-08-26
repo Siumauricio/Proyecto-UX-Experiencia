@@ -32,8 +32,8 @@
                 </div>
                 <div class="container">
                 <div class="row buttons">
-                    <button type="button" class="btn btn-primary"  style="margin-right:30px;" (click)="agregarCarrito(pr)">Añadir</button>
-                    <button type="button" class="btn btn-info" (click)="showReviews(pr)" data-toggle="modal" data-target="#reviewsModal">Reviews
+                    <button  *ngIf="auth.estaAutenticado()" type="button" class="btn btn-primary" (click)="agregarCarrito(pr)">Añadir</button>
+                    <button type="button" class="btn btn-info" (click)="showReviews(pr)" data-toggle="modal" data-target="#reviewsModal" style="margin-left:50px;">Reviews
                     </button>
                 </div>
                 </div>
@@ -85,7 +85,6 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <!-- <button type="button" class="btn btn-primary" (click)="showOptionReview()">Agregar Review</button> -->
                     </div>
                   </div>
                 </div>
